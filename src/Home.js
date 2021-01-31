@@ -38,12 +38,6 @@ function Home() {
                      price={299.00} 
                      image= {Image}
                      rating={4}/>
-                   <Product 
-                     id="11221"
-                     title="Smokey thunder" 
-                     price={99.00} 
-                     image= {Image}
-                     rating={5}/>
                </div>
 
                <div className="home__row">
