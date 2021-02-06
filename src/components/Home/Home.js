@@ -1,8 +1,8 @@
 import React from 'react';
 import "./Home.css";
-import backgroundImage from './bg.png';
-import Product from './Product';
-import Image  from './bg.png';
+// import backgroundImage from './bg.png';
+import Product from '../Product/Product';
+// import Image  from '../../assests/images/bg.png';
 
 function Home() {
     return (
