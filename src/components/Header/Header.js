@@ -1,5 +1,17 @@
 import React from 'react';
-import './Header.css';
+import {
+  HeaderMain,
+  HeaderLogo,
+  HeaderSearch,
+  HeaderSearchInput,
+  HeaderSearchIcon,
+  HeaderNav,
+  HeaderOption,
+  HeaderOptionLineOne,
+  HeaderOptionLineTwo,
+  HeaderOptionBasket,
+  HeaderBasketCount
+} from './styles';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { Link } from 'react-router-dom';
@@ -8,57 +20,88 @@ import { auth } from '../../containers/firebase';
 // import logo from './assets/images/logo.png';
 
 function Header() {
-    const [{basket,user},dispatch] = useStateValue();
-    const handleAuthentication = () => {
-      if(user){
-        auth.signOut();
-      }
+  const [{ basket, user }, dispatch] = useStateValue();
+  const handleAuthentication = () => {
+    if (user) {
+      auth.signOut();
     }
-    return (
-        <div className='header'>
-            <Link  to="/">
-              <img 
-              className='header__logo'
-              src={null}
-              alt='logo'
-             />
-            </Link>
+  }
+  return (
+    <HeaderMain style={{
+      height: "60px",
+      display: "flex",
+      alignItems: "center",
+      backgroundColor: " #131921",
+      position: "sticky",
+      top: "0",
+      zIndex: 100,
+    }}>
+      <Link to="/">
+        <HeaderLogo
+          src={null}
+          alt='logo'
+        />
+      </Link>
 
 
-             <div className="header__search">
-                 <input 
-                   className="header_searchInput"
-                   type="text"
-                   />
-                   <SearchIcon 
-                   className="header__searchIcon" />
-                   {/* logo */}
-             </div>
+      <div style={{
+        display: "flex",
+        flex: "1",
+        alignItems: "center",
+        borderRadius: "24px",
+      }}>
+        <HeaderSearchInput>
+          <input style={{
+            height: "12px",
+            padding: "10px",
+            border: "none",
+            width: "100 %",
+          }}
+            type="text"
+          />
+        </HeaderSearchInput>
 
-             <div className="header__nav">
-               <Link to={!user && "/login"}>
-                   <div onClick={handleAuthentication} className="header__option">
-                     <span className="header__optionLineOne">Hello {user ? user?.email : "Guest"}</span>
-                      <span className="header__optionLineTwo">{user ? 'Sign out' : 'Sign in'}</span>
-                   </div>
-                 </Link>
+        <HeaderSearchIcon>
+          <SearchIcon />
+        </HeaderSearchIcon>
 
-                 <div className="header__option">
-                      <span className="header__optionLineOne">Returns</span>
-                      <span className="header__optionLineTwo">& Orders</span>
-                 </div>
-                 <Link to="/checkout">
-                   <div className="header__optionBasket">
-                      <ShoppingBasketIcon />
-                      <span className="header__optionLineTwo header__basketCount">{basket?.length}</span>
-                   </div>
-                 </Link>
-                 
+      </div>
 
-             </div>
+      <HeaderNav>
+        <Link to={!user && "/login"}>
+          <HeaderOption onClick={handleAuthentication} >
 
-        </div>
-    )
+            <HeaderOptionLineOne>
+              Hello {user ? user?.email : "Guest"}
+            </HeaderOptionLineOne>
+
+            <HeaderOptionLineTwo>
+              {user ? 'Sign out' : 'Sign in'}
+            </HeaderOptionLineTwo>
+
+          </HeaderOption>
+        </Link>
+
+        <HeaderOption>
+          <HeaderOptionLineOne>Returns</HeaderOptionLineOne>
+          <HeaderOptionLineTwo>& Orders</HeaderOptionLineTwo>
+        </HeaderOption>
+        <Link to="/checkout">
+          <HeaderOptionBasket>
+            <ShoppingBasketIcon />
+            <HeaderOptionLineTwo>
+              <HeaderBasketCount>
+                {basket?.length}
+              </HeaderBasketCount>
+            </HeaderOptionLineTwo>
+          </HeaderOptionBasket>
+        </Link>
+
+
+      </HeaderNav>
+
+    </HeaderMain >
+  )
 }
 
 export default Header

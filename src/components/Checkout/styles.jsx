@@ -1,15 +1,19 @@
-.checkout {
+import styled from 'styled-components'
+
+export const Checkouts = styled.div`
   display: flex;
   padding: 20px;
   background-color: white;
   height: max-content;
-}
-.checkout__title {
+}`;
+
+export const CheckouttTitle = styled.h2`
   margin-right: 10px;
   padding: 10px;
   border-bottom: 1px solid lightgray;
-}
-.checkout__ad {
+}`;
+
+export const CheckoutAd = styled.div`
   width: 100%;
   margin-bottom: 10px;
-}
+}`;

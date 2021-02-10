@@ -40,7 +40,7 @@ function Login() {
         <div className="login">
             <Link to="/">
                 <img className="login__logo"
-                     src={logo}
+                     src={"logo"}
                      alt="Logo"
                 />
             </Link>
