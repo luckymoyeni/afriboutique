@@ -1,66 +1,92 @@
-import React, {useState } from 'react';
-import "./Login.css";
-import {Link, useHistory} from "react-router-dom";
+import React, { useState } from 'react';
+import {
+    LoginWrapper,
+    LoginLogo,
+    LoginContainer,
+    LoginContainerInput,
+    LoginContainerP,
+    LoginRegisterButton,
+    LoginSignInButton
+} from "./styles";
+import { Link, useHistory } from "react-router-dom";
 import { auth } from '../../containers/firebase';
 // import logo from './assets/images/logo.png';
 
 function Login() {
-    const history  = useHistory();
+    const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const signIn = e =>{
+    const signIn = e => {
         e.preventDefault(); //this will stop the refresh
         //do login logic 
-        auth.signInWithEmailAndPassword(email,password).then((auth) => {
+        auth.signInWithEmailAndPassword(email, password).then((auth) => {
             //logged in, redirect to home page
-            if(auth){
+            if (auth) {
                 history.push('/');
             }
         })
-        .catch(e => alert(e.message))
+            .catch(e => alert(e.message))
     }
 
-    const register = e =>{  
+    const register = e => {
         e.preventDefault(); //this will stop the refresh
         //do register logic
 
-        auth.createUserWithEmailAndPassword(email,password)
-        .then(auth => {
-            console.log(auth);
-            if(auth){
-                history.push('/');
-            }
-            //created a user and logged in, redirect to the home page
-        })
-        .catch(e => alert(e.message))
+        auth.createUserWithEmailAndPassword(email, password)
+            .then(auth => {
+                console.log(auth);
+                if (auth) {
+                    history.push('/');
+                }
+                //created a user and logged in, redirect to the home page
+            })
+            .catch(e => alert(e.message))
 
     }
     return (
-        <div className="login">
+        <LoginWrapper>
             <Link to="/">
-                <img className="login__logo"
-                     src={"logo"}
-                     alt="Logo"
+                <LoginLogo
+                    src={"logo"}
+                    alt="Logo"
                 />
             </Link>
-            <div className="login__container">
-                <h1>Sign in</h1>
+            <LoginContainer>
+                <h1 style={{
+                    fontWeight: "500",
+                    marginBottom: " 20px",
+                    margin: "auto"
+                }}>Sign in</h1>
                 <form>
-                   <h5>E-mail</h5>
-                   <input   type="text" value={email} onChange={e => setEmail(e.target.value )}/>
-                   <h5>Password</h5>
-                   <input value={password} onChange={e => setPassword(e.target.value )} type="password"/>
-                   <button onClick={signIn} type="submit" className="login__signInButton">Sign in</button>
+                    <h5>E-mail</h5>
+                    <LoginContainerInput>
+                        <input type="text" value={email} onChange={e => setEmail(e.target.value)} style={{
+                            height: "30px",
+                            marginBottom: "10px",
+                            backgroundColor: "white",
+                            width: "98%",
+                        }} />
+                    </LoginContainerInput>
+                    <h5>Password</h5>
+                    <input value={password} onChange={e => setPassword(e.target.value)} type="password" style={{
+                        height: "30px",
+                        marginBottom: "10px",
+                        backgroundColor: "white",
+                        width: "98%",
+                    }} />
+                    <LoginSignInButton onClick={signIn} type="submit">
+                        Sign in
+                    </LoginSignInButton>
 
-                   <p> 
-                       By signing-in you agree to Afriboutiue's conditions of use & sale. Please see our Privacy Notice, our Cookies Notice
-                       and our interest-Based Ads Notice.
-                   </p>
-                   <button onClick={register} className="login__registerButton">Create Account</button>
+                    <LoginContainerP>
+                        By signing-in you agree to Afriboutiue's conditions of use & sale. Please see our Privacy Notice, our Cookies Notice
+                        and our interest-Based Ads Notice.
+                   </LoginContainerP>
+                    <LoginRegisterButton onClick={register} className="login__registerButton">Create Account</LoginRegisterButton>
                 </form>
-            </div>
-        </div>
+            </LoginContainer>
+        </LoginWrapper>
     )
 }
 

@@ -1,16 +1,15 @@
 import React from 'react';
-import "./Home.css";
+import { HomWrapper, HomeRow, HomeImage } from "./styles";
 // import backgroundImage from './bg.png';
 import Product from '../Product/Product';
 // import Image  from '../../assests/images/bg.png';
 
 function Home() {
   return (
-    <div className="Home">
-      <div className="home__container">
-        <img src={"backgroundImage"} alt="" className="home__image" />
-
-        <div className="home__row">
+    <HomWrapper>
+      <HomWrapper>
+        <HomeImage src={"backgroundImage"} alt="" />
+        <HomeRow>
           <Product
             id="1232"
             title="Zara"
@@ -23,9 +22,9 @@ function Home() {
             price={199.00}
             image={Image}
             rating={1} />
-        </div>
+        </HomeRow>
 
-        <div className="home__row">
+        <HomeRow>
           <Product
             id="11221"
             title="Blunt"
@@ -38,18 +37,18 @@ function Home() {
             price={299.00}
             image={Image}
             rating={4} />
-        </div>
+        </HomeRow>
 
-        <div className="home__row">
+        <HomeRow>
           <Product
             id="2211226"
             title="Craked whispers"
             price={499.00}
             image={Image}
             rating={2} />
-        </div>
-      </div>
-    </div>
+        </HomeRow>
+      </HomWrapper>
+    </HomWrapper>
   )
 }
 

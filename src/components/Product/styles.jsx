@@ -1,4 +1,6 @@
-.product {
+import styled from 'styled-components'
+
+export const ProductWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,30 +12,33 @@
   min-width: 100px;
   background-color: white;
   z-index: 1;
-}
-.product > img {
+`;
+export const ProductImg = styled.div`
   max-height: 200px;
   width: 100%;
   object-fit: contain;
   margin-bottom: 15px;
-}
+`;
 
-.product > button {
+export const ProductButton = styled.button`
   background-color: #f0c14b;
   border: 1px;
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
-}
+  width: 100%;
+  height: 30%;
+  border-radius: 10px;
+`;
 
-.product_info {
+export const ProductInfo = styled.div`
   height: 100px;
   margin-bottom: 15px;
-}
+`;
 
-.prodct__price {
+export const ProdctPrice = styled.div`
   margin-top: 5px;
-}
-.product__rating {
+`;
+export const ProductRating = styled.div`
   display: flex;
-}
+`;
