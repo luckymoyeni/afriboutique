@@ -1,50 +1,53 @@
-.login {
+import styled from 'styled-components'
+
+export const LoginWrapper = styled.div`
     background-color: white;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+`;
 
-.login__logo {
+export const LoginLogo = styled.img`
     width: 100px;
     object-fit: contain;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-right: auto;
     margin-left: auto;
-}
+`;
 
-.login__container {
+export const LoginContainer = styled.div`
     width: 300px;
     display: flex;
     flex-direction: column;
     padding: 20px;
     border: 1px solid lightgray;
-}
+`;
 
-.login__container > h1 {
+export const LoginContainerh1 = styled.h1`
     font-weight: 500;
     margin-bottom: 20px;
-}
+`;
 
-.login__container > form > h5 {
+export const LoginContainerh5 = styled.h5`
     margin-bottom: 5px;
-}
 
-.login__container > form > input {
+`;
+
+export const LoginContainerInput = styled.div`
     height: 30px;
     margin-bottom: 10px;
     background-color: white;
     width: 98%;
-}
+`;
 
-.login__container > p {
+export const LoginContainerP = styled.div`
     margin-top: 15px;
     font-size: 12px;
-}
+`;
 
-.login__signInButton {
+export const LoginSignInButton = styled.button`
     background: #f0c14b;
     border-radius: 2px;
     width: 100%;
@@ -53,13 +56,13 @@
     margin-top: 10px;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
-}
+`;
 
-.login__registerButton {
+export const LoginRegisterButton = styled.button`
     border-radius: 2px;
     width: 100%;
     height: 30px;
     border: 1px solid;
     margin-top: 10px;
     border-color: teal turquoise white;
-}
+`;

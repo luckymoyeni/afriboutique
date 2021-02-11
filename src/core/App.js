@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Switch ,Route } from 'react-router-dom';
 import './App.css';
-import Checkout from './Checkout';
-import { auth } from './firebase';
-import Header from './Header';
-import Home from './Home';
-import Login from './Login';
-import { useStateValue } from './StateProvider';
+import Checkout from '../components/Checkout/Checkout';
+import { auth } from '../containers/firebase';
+import Header from '../components/Header/Header';
+import Home from '../components/Home/Home';
+import Login from '../components/Login/Login';
+import { useStateValue } from '../containers/StateProvider';
 
 function App() {
   const [{},dispatch] = useStateValue();
