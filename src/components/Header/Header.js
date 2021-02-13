@@ -17,7 +17,6 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../../containers/StateProvider';
 import { auth } from '../../containers/firebase';
-// import logo from './assets/images/logo.png';
 
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -26,46 +25,34 @@ function Header() {
       auth.signOut();
     }
   }
+  const Image = process.env.PUBLIC_URL + '/logo.png';
   return (
-    <HeaderMain style={{
-      height: "60px",
-      display: "flex",
-      alignItems: "center",
-      backgroundColor: " #131921",
-      position: "sticky",
-      top: "0",
-      zIndex: 100,
-    }}>
+    <HeaderMain>
       <Link to="/">
         <HeaderLogo
-          src={null}
+          src={Image}
           alt='logo'
         />
       </Link>
 
+      <HeaderSearch>
+        <input style={{
+          height: "12px",
+          padding: "10px",
+          border: "none",
+          display: "flex",
+          flex: "1",
+          borderRadius: "5px",
 
-      <div style={{
-        display: "flex",
-        flex: "1",
-        alignItems: "center",
-        borderRadius: "24px",
-      }}>
-        <HeaderSearchInput>
-          <input style={{
-            height: "12px",
-            padding: "10px",
-            border: "none",
-            width: "100 %",
-          }}
-            type="text"
-          />
-        </HeaderSearchInput>
-
+        }}
+          type="text"
+        />
         <HeaderSearchIcon>
           <SearchIcon />
         </HeaderSearchIcon>
+      </HeaderSearch>
 
-      </div>
+
 
       <HeaderNav>
         <Link to={!user && "/login"}>

@@ -1,14 +1,16 @@
 import React from 'react';
 import { HomWrapper, HomeRow, HomeImage } from "./styles";
-// import backgroundImage from './bg.png';
 import Product from '../Product/Product';
-// import Image  from '../../assests/images/bg.png';
 
 function Home() {
+  const Image = process.env.PUBLIC_URL + '/logo.png';
+  const  backgroundImage = process.env.PUBLIC_URL +'/name.jpg';
   return (
+
+
     <HomWrapper>
       <HomWrapper>
-        <HomeImage src={"backgroundImage"} alt="" />
+        <HomeImage src={backgroundImage} alt="" />
         <HomeRow>
           <Product
             id="1232"

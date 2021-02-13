@@ -12,16 +12,19 @@ export const HeaderMain = styled.div`
 
 export const HeaderLogo = styled.img`
   width: 100px;
-  object - fit: contain;
+  object-fit: contain;
+
   margin: 0 20px;
-  margin - bottom: 18px;
+  margin-bottom: 18px;
 `;
 
 export const HeaderSearch = styled.div`
   display: flex;
   flex: 1;
-  align - items: center;
-  border - radius: 24px;
+  align-items: center;
+  border-radius: 24px;
+  width: 100%;
+  color: white;
 `;
 
 export const HeaderSearchInput = styled.div`
@@ -34,38 +37,38 @@ export const HeaderSearchInput = styled.div`
 export const HeaderSearchIcon = styled.div`
   padding: 5px;
   height: 22px;
-  background - color: #cd9042;
+  background-color: #cd9042;
 `;
 
-export const HeaderOptionLineOne = styled.span`
-  font - size: 10px;
+export const HeaderOptionLineOne = styled.div`
+  font-size: 10px;
 `;
 
-export const HeaderOptionLineTwo = styled.span`
-  font - size: 13px;
-  font - weight: 800;
+export const HeaderOptionLineTwo = styled.div`
+  font-size: 13px;
+  font-weight: 800;
 `;
 
 export const HeaderOption = styled.div`
   display: flex;
-  flex - direction: column;
-  margin - left: 10px;
-  margin - right: 10px;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
   color: white;
 `;
 
 export const HeaderNav = styled.div`
   display: flex;
-  justify - content: space - evenly;
+  justify-content: space-evenly;
 `;
 
 export const HeaderOptionBasket = styled.div`
   display: flex;
-  align - items: center;
+  align-items: center;
   color: white;
 `;
 
 export const HeaderBasketCount = styled.div`
-  margin - left: 10px;
-  margin - right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 `;
