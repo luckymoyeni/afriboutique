@@ -41,6 +41,7 @@ function Product({ id, title, image, price, rating }) {
                         ))}
                 </ProductRating>
             </ProductInfo>
+
             <ProductImg src={image} alt="" />
             <ProductButton onClick={addToBasket}>Add to Basket</ProductButton>
         </ProductWrapper>

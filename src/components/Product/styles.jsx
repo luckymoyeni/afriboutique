@@ -13,7 +13,7 @@ export const ProductWrapper = styled.div`
   background-color: white;
   z-index: 1;
 `;
-export const ProductImg = styled.div`
+export const ProductImg = styled.img`
   max-height: 200px;
   width: 100%;
   object-fit: contain;
@@ -26,7 +26,7 @@ export const ProductButton = styled.button`
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
-  width: 100%;
+  width: 60%;
   height: 30%;
   border-radius: 10px;
 `;
