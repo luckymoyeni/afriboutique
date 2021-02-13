@@ -3,7 +3,6 @@ import {
   HeaderMain,
   HeaderLogo,
   HeaderSearch,
-  HeaderSearchInput,
   HeaderSearchIcon,
   HeaderNav,
   HeaderOption,
