@@ -7,13 +7,18 @@ import {
     ProductButton,
     ProductImg
 } from "./styles.jsx";
-import { useStateValue } from '../../containers/StateProvider';
+import { useSelector, useDispatch } from "react-redux";
+
 
 function Product({ id, title, image, price, rating }) {
-    const [{ basket }, dispatch] = useStateValue();
+    const Dispatchers = useDispatch();
+
+    const mainreducer = useSelector(state => state.Mainreducer);
+
+    console.log("I am someone  " + mainreducer.basket[0]?.id)
 
     const addToBasket = () => {
-        dispatch({
+        Dispatchers({
             type: 'ADD_TO_BASKET',
             item: {
                 id: id,
@@ -24,6 +29,7 @@ function Product({ id, title, image, price, rating }) {
             }
         })
     }
+
     return (
         <ProductWrapper>
             <ProductInfo>

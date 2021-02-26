@@ -6,39 +6,32 @@ import { auth } from '../containers/firebase';
 import Header from '../components/Header/Header';
 import Home from '../components/Home/Home';
 import Login from '../components/Login/Login';
-import { useStateValue } from '../containers/StateProvider';
-import { useSelector, useDispatch } from "react-redux";
-import { increment,decrement } from "../components/Actions"
+import { useDispatch } from "react-redux";
 function App() {
-  const [{ }, dispatch] = useStateValue();
+
+  const Dispatchers = useDispatch();
 
   useEffect(() => {
     auth.onAuthStateChanged(authUser => {
 
       if (authUser) {
-        dispatch({
+        Dispatchers({
           type: 'SET_USER',
           user: authUser
         })
       } else {
-        dispatch({
+        Dispatchers({
           type: 'SET_USER',
           user: null
         })
       }
     })
-  }, []);
+  }, [Dispatchers]);
 
-  const Counter = useSelector(state => state.CounterReducer)
-  const Dispatchers = useDispatch();
   return (
 
     <Router>
       <div className="app">
-
-        <h1>Counter :{Counter} </h1>
-        <button onClick={() => Dispatchers(increment())}>+</button>
-        <button onClick={() => Dispatchers(decrement())}>-</button>
         <Switch>
           <Route path="/login">
             <Login />

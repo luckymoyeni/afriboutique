@@ -2,7 +2,6 @@ import React from 'react';
 import {
   HeaderMain,
   HeaderLogo,
-  HeaderSearch,
   HeaderSearchInput,
   HeaderSearchIcon,
   HeaderNav,
@@ -15,14 +14,15 @@ import {
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { Link } from 'react-router-dom';
-import { useStateValue } from '../../containers/StateProvider';
 import { auth } from '../../containers/firebase';
+import { useSelector } from "react-redux";
 // import logo from './assets/images/logo.png';
 
 function Header() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const mainreducer = useSelector(state => state.Mainreducer);
+
   const handleAuthentication = () => {
-    if (user) {
+    if (mainreducer.user) {
       auth.signOut();
     }
   }
@@ -68,15 +68,15 @@ function Header() {
       </div>
 
       <HeaderNav>
-        <Link to={!user && "/login"}>
+        <Link to={!mainreducer.user && "/login"}>
           <HeaderOption onClick={handleAuthentication} >
 
             <HeaderOptionLineOne>
-              Hello {user ? user?.email : "Guest"}
+              Hello {mainreducer.user ? mainreducer.user?.email : "Guest"}
             </HeaderOptionLineOne>
 
             <HeaderOptionLineTwo>
-              {user ? 'Sign out' : 'Sign in'}
+              {mainreducer.user ? 'Sign out' : 'Sign in'}
             </HeaderOptionLineTwo>
 
           </HeaderOption>
@@ -91,7 +91,7 @@ function Header() {
             <ShoppingBasketIcon />
             <HeaderOptionLineTwo>
               <HeaderBasketCount>
-                {basket?.length}
+                {mainreducer.basket?.length}
               </HeaderBasketCount>
             </HeaderOptionLineTwo>
           </HeaderOptionBasket>

@@ -12,7 +12,7 @@ import {Provider} from "react-redux";
 let store = createStore(AllReducers);
 
 // display 
-store.subscribe(() => console.log(store.getState))
+// store.subscribe(() => console.log(store.getState))
 
 ReactDOM.render(
   <React.StrictMode>
