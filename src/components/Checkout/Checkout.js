@@ -1,12 +1,13 @@
 import React from "react";
 import Subtotal from "../Subtotal/Subtotal";
 import { CheckoutAd, CheckouttTitle, Checkouts } from "./styles";
-// import Banner from './assets/images/download.jpg';
-import { useStateValue } from '../../containers/StateProvider';
 import CheckoutProduct from "./CheckoutPoduct";
-function Checkout() {
-    const [{ basket, user }, dispatch] = useStateValue();
+import { useSelector } from "react-redux";
 
+function Checkout() {
+    const mainreducer = useSelector(state => state.Mainreducer);
+
+    console.log("I am someone  " + mainreducer.basket[0]?.id)
     return (
         <Checkouts>
             <div className="checkout__left">
@@ -14,11 +15,12 @@ function Checkout() {
                     <img src={"Banner"} alt="" />
                 </CheckoutAd>
                 <div >
-                    <h3>Hello {user?.email}</h3>
+                    {/* <h3>Hello {MainReducer.user?.email}</h3> */}
                     <CheckouttTitle>
                         <h2>Your Shopping basket</h2>
+                        {console.log()}
                     </CheckouttTitle>
-                    {basket.map(item => (
+                    {mainreducer?.basket?.map(item => (
                         <CheckoutProduct
                             id={item.id}
                             title={item.title}
