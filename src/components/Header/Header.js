@@ -2,7 +2,7 @@ import React from 'react';
 import {
   HeaderMain,
   HeaderLogo,
-  HeaderSearchInput,
+  HeaderSearch,
   HeaderSearchIcon,
   HeaderNav,
   HeaderOption,
