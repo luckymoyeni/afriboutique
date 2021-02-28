@@ -1,13 +1,12 @@
 import React from "react";
 import Subtotal from "../Subtotal/Subtotal";
-import { CheckoutAd, CheckouttTitle, Checkouts } from "./styles";
+import { CheckoutAd, CheckouttTitle, Checkouts, Subtotalrapper } from "./styles";
 import CheckoutProduct from "./CheckoutPoduct";
 import { useSelector } from "react-redux";
 
 function Checkout() {
     const mainreducer = useSelector(state => state.Mainreducer);
 
-    console.log("I am someone  " + mainreducer.basket[0]?.id)
     return (
         <Checkouts>
             <div className="checkout__left">
@@ -15,10 +14,10 @@ function Checkout() {
                     <img src={"Banner"} alt="" />
                 </CheckoutAd>
                 <div >
-                    {/* <h3>Hello {MainReducer.user?.email}</h3> */}
                     <CheckouttTitle>
-                        <h2>Your Shopping basket</h2>
-                        {console.log()}
+                        <h3>{mainreducer.user?.email.toUpperCase()}</h3>
+                        <br />
+                        {mainreducer?.basket.length ? "Your Shopping basket" : "Basket is Empty"}
                     </CheckouttTitle>
                     {mainreducer?.basket?.map(item => (
                         <CheckoutProduct
@@ -31,10 +30,9 @@ function Checkout() {
                     ))}
                 </div>
             </div>
-            <div className="checkout__right">
+            <Subtotalrapper>
                 <Subtotal />
-                <h2>Sub total</h2>
-            </div>
+            </Subtotalrapper>
         </Checkouts>
     )
 }

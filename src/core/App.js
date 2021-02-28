@@ -6,6 +6,8 @@ import { auth } from '../containers/firebase';
 import Header from '../components/Header/Header';
 import Home from '../components/Home/Home';
 import Login from '../components/Login/Login';
+import Userprofile from '../components/UserProfile';
+
 import { useDispatch } from "react-redux";
 function App() {
 
@@ -39,6 +41,10 @@ function App() {
           <Route path="/checkout">
             <Header />
             <Checkout />
+          </Route>
+          <Route path="/userprofile">
+            <Header />
+            <Userprofile/>
           </Route>
           <Route path="/">
             <Header />

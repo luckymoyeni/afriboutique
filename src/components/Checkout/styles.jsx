@@ -17,3 +17,9 @@ export const CheckoutAd = styled.div`
   width: 100%;
   margin-bottom: 10px;
 }`;
+
+export const Subtotalrapper = styled.div`
+    position:absolute;
+    top:30;
+    right: 8px;
+`;
