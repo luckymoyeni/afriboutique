@@ -7,7 +7,7 @@ export const ProductWrapper = styled.div`
   justify-content: flex-end;
   margin: 10px;
   padding: 20px;
-  width: 100%;
+  width: 90%;
   max-height: 400px;
   min-width: 100px;
   background-color: white;
@@ -27,8 +27,8 @@ export const ProductButton = styled.button`
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
   width: 60%;
-  height: 30%;
   border-radius: 10px;
+  cursor: pointer;
 `;
 
 export const ProductInfo = styled.div`

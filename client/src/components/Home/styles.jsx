@@ -7,7 +7,8 @@ export const HomWrapper = styled.div`
 `;
 
 export const HomeRow = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto;
     z-index: 1;
     margin-left: 5px;
     margin-right: 5px;

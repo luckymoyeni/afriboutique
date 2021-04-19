@@ -15,7 +15,6 @@ function Product({ id, title, image, price, rating }) {
 
     const mainreducer = useSelector(state => state.Mainreducer);
 
-    console.log("I am someone  " + mainreducer.basket[0]?.id)
 
     const addToBasket = () => {
         Dispatchers({
